@@ -8,7 +8,7 @@ const MovieThumbnail = ({ result }: any) => {
   const router = useRouter();
   const [like , setLike] = useState<boolean>(false)
   const [disLike , setDisLike] = useState<boolean>(false)
-
+  
   const LikeHnadler = () => {
     setLike(true)
     setDisLike(false)
@@ -37,7 +37,7 @@ const MovieThumbnail = ({ result }: any) => {
       <div className="absolute inset-y-16 md:inset-y-auto md:bottom-10 inset-x-4 text-lg space-y-6 z-50 ">
         {result?.title || result?.original_name}
       </div>
-      <div className="absolute flex-col inset-y-32 md:inset-y-auto md:bottom-4 inset-x-4 text-lg space-y-6 z-50 " onClick={() => router.push(`/show/${result.id}`)} ><PlayIcon className="h-6 border-2 rounded-full" /></div>
+      <div className="absolute flex-col inset-y-32 md:inset-y-auto md:bottom-4 inset-x-4 text-lg space-y-6 z-50 " onClick={() => router.push(`/movie/${result.id}`)} ><PlayIcon className="h-6 border-2 rounded-full" /></div>
       <div className="absolute flex inset-y-32 md:inset-y-auto md:bottom-4 inset-x-4 text-lg space-y-6 z-50 ml-10" ><ThumbUpIcon className={like ? 'h-6 text-sky-600':'h-6'} onClick={LikeHnadler}/></div>
       <div className="absolute flex inset-y-32 md:inset-y-auto md:bottom-4 inset-x-4 text-lg space-y-6 z-50 ml-16" ><ThumbDownIcon className={disLike ? 'h-6 text-red-600':'h-6'} onClick={DisLikeHnadler}/></div>
       

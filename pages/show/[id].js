@@ -8,7 +8,7 @@ import Hero from "../../component/Hero";
 import { PlusIcon, XIcon } from "@heroicons/react/solid";
 import ReactPlayer from "react-player/lazy";
 
-function Show({ result }) {
+const Show = ({ result }) => {
   const {data:session} = useSession();
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
   const router = useRouter();
@@ -20,7 +20,7 @@ function Show({ result }) {
     }
   }, []);
 
-  const index = result.videos.results.findIndex(
+  const index = result.videos?.results.findIndex(
     (element) => element.type === "Trailer"
   );
 
@@ -85,10 +85,10 @@ function Show({ result }) {
             </div>
 
             <p className="text-xs md:text-sm">
-              {result.release_date || result.first_air_date} •{" "}
+              {result.release_date || result.first_air_date} {" "}
               {result.number_of_seasons}{" "}
-              {result.number_of_seasons === 1 ? "Season" : "Seasons"} •{" "}
-              {result.genres.map((genre) => genre.name + " ")}{" "}
+              {result.number_of_seasons === 1 ? "Season" : "Seasons"} {" "}
+              {result.genres?.map((genre) => genre.name + " ")}{" "}
             </p>
             <h4 className="text-sm md:text-lg max-w-4xl">{result.overview}</h4>
           </div>

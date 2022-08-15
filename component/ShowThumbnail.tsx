@@ -8,6 +8,7 @@ function ShowThumbnail({ result }:any) {
   const router = useRouter();
   const [like , setLike] = useState<boolean>(false)
   const [disLike , setDisLike] = useState<boolean>(false)
+  
 
   const LikeHnadler = () => {
     setLike(true)
